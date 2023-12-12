@@ -48,17 +48,8 @@ async function sendEmail(data) {
     console.log('sgMail finished', res);
   } catch (error) {
     console.log(error);
-    // res.status(500).json(error.message);
+    throw new Error("Email was not sent");
   }
-  // sgMail
-  //     .send(msg)
-  //     .then(() => {}, error => {
-  //         console.error(error);
-
-  //         if (error.response) {
-  //             console.error(error.response.body)
-  //         }
-  //     })
 }
 
 /**
@@ -73,7 +64,9 @@ async function sendEmail(data) {
                                     venue: "Los Angeles, CA", 
                                     comments: "this is comments"
                                   }
-  @return if error: {failed:error}, if sucess: {success:data[0].id}
+  @return if db error: returns {failed:{code: '42501', details: null, hint: null, message: 'xxxx'}} it's an example data.
+          if email error: returns {faied:{message: "xxxx"}}
+          if sucess: returns {success:data[0].id}
 */
 export async function addData(userData){
     console.debug(`addData started`);
@@ -92,14 +85,16 @@ export async function addData(userData){
                               ])
                               .select()
       if(error){ 
+        console.log(error)
         return {failed:error}
       } else{   
         try{
           await sendEmail(data[0])
           console.log(data[0])
           return {success:data[0].id}
-        } catch(e){
-          console.log(e);
+        } catch({name, message}){
+          console.log(message);
+          return {failed: {message}}
         }
       }
 }
