@@ -44,19 +44,11 @@ export default function GetAQuote() {
                                   } 
    * @returns 
    */
-<<<<<<< HEAD
   async function processForm(data) {
     console.log(data);
     if (data._field) return;
 
     try {
-=======
-  async function processForm(data){
-    // console.log(data);
-    if(data._field) return;
-    
-    try{
->>>>>>> eab0ab9... changed tailwindconfig hover color, updated addData with error handling
       const response = await addData(data);
       if (response?.success) {
         console.log(`Data added. db id#: ${response.success}`);
