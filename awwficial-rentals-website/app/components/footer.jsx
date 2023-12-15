@@ -35,7 +35,7 @@ export default function Footer() {
             lineHeight: "normal",
           }}
         >
-          Providing 360 photobooth experience in La and the OC!
+          Providing 360 photobooth experience in LA and the OC!
         </p>
       </div>
       <div className="tablet:order-2">
