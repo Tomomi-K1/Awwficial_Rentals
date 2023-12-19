@@ -1,5 +1,5 @@
 'use server';
-import supabase from "./client/supabase";
+import supabase from "../client/supabase";
 const sgMail = require('@sendgrid/mail');
 
 async function sendEmail(data) {

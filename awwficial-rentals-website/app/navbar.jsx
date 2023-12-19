@@ -23,24 +23,30 @@ export default function Navbar() {
     // I plan to make the navbar transparent later,
     // but I do like seeing the colors change with the breakpoints.
     // Helps me with responsive design.
-    <div className="flex flex-row items-center justify-between bg-[#EDE9FD] h-[112px] tablet:w-auto">
-      <Image
-        src='/images/navbarLogo.png'
-        width={194}
-        height={56}
-        alt ='image of oscar carvente '
-      />
-      <div className='hidden tablet:flex tablet:flex-row tablet:justify-between tablet:items-center w-full  px-5 ml-5'>
-        <BorderlessButton name={"Home"} href={"/"}/>
-        <BorderlessButton name={"Services"} href={"/Services"}/>
-        <BorderlessButton name={"Gallery"} href={"/GalleryPage"}/>
-        <BorderlessButton name={"Contact"} href={"/Contact"}/>
-        <BorderlessButton name={"FAQ"} href={"/FAQs"}/>
-        <LargeButton name={'Get A Quote'} href={'/GetAQuote'} />
+    <nav className="bg-[#EDE9FD] h-[112px] w-full flex items-center justify-center">
+      <div className="flex flex-row items-center justify-between grow max-w-[1700px] px-3">
+        <Image
+          src='/images/navbarLogo.png'
+          width={194}
+          height={56}
+          alt ='Awwficial Logo'
+        />
+        <div className='hidden tablet:flex tablet:flex-row tablet:justify-between tablet:items-center w-full gap-1'>
+          <div className="tablet:flex tablet:flex-row tablet:justify-around tablet:items-center grow gap-1">
+            <BorderlessButton name={"Home"} href={"/"}/>
+            <BorderlessButton name={"Services"} href={"/Services"}/>
+            <BorderlessButton name={"Gallery"} href={"/GalleryPage"}/>
+            <BorderlessButton name={"Contact"} href={"/Contact"}/>
+            <BorderlessButton name={"FAQ"} href={"/FAQs"}/>
+          </div>
+          <div className="">
+            <LargeButton name={'Get A Quote'} href={'/GetAQuote'} />
+          </div>
+        </div>
+        <div className='tablet:hidden w-full flex justify-end p-4'>
+          <ResponsiveDrawer navBarLabels={navBarLabels} />
+        </div>
       </div>
-      <div className='tablet:hidden w-full flex justify-end p-4'>
-        <ResponsiveDrawer navBarLabels={navBarLabels} />
-      </div>
-    </div>
+    </nav>
   );
 }

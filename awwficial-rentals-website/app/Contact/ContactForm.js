@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import { addContactToDB } from "../actions";
+import { addContactToDB } from "../actions/actions";
 
 function ContactForm() {
     const [errors, setErrors] = useState({}); 
