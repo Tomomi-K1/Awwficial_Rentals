@@ -183,9 +183,6 @@ export default function FAQs() {
                   fontFamily: "Playfair Display",
                   fontSize: "32px",
                   fontWeight: "600",
-                  "@media": {
-                    fontSize:"19px"
-                  },
                 }}
               >
                 {item.q}
